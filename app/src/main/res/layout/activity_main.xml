@@ -94,17 +94,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/gl_horizontal"
         android:layout_marginTop="@dimen/margin_padding_size_medium"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
     <include
         android:id="@+id/not_document_detected"
         layout="@layout/not_document_detected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/gl_horizontal" />
+        app:layout_constraintTop_toTopOf="@id/gl_horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/bt_check"/>
 
     <ProgressBar
         android:id="@+id/pb_loading"
@@ -119,8 +120,7 @@
 
     <ImageView
         android:id="@+id/iv_camera"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        style="@style/IconSelector"
         android:layout_marginTop="@dimen/margin_padding_size_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -129,8 +129,7 @@
 
     <ImageView
         android:id="@+id/iv_gallery"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        style="@style/IconSelector"
         app:layout_constraintBottom_toTopOf="@+id/gl_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

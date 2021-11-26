@@ -30,10 +30,12 @@
         <item name="android:paddingLeft">@dimen/margin_padding_size_medium</item>
         <item name="android:paddingTop">@dimen/margin_padding_size_medium</item>
         <item name="android:paddingBottom">@dimen/margin_padding_size_medium</item>
-        <!--<item name="elevation">@dimen/margin_padding_size_zero</item>
-        <item name="iconTint">@color/button_primary_textcolor_selector</item>-->
         <item name="fontFamily">@font/roboto_bold</item>
-        <!--<item name="android:textSize">@dimen/text_size_medium</item>-->
         <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="IconSelector">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
     </style>
 </resources>
