@@ -20,7 +20,7 @@ In order to guarantee the correct architecture, we have adopted a clean architec
 In order to guarantee the quality of the project, we have adopted a Espresso framework for UI tests.
  
  ### Framework
-In this project we have used 2 trendy frameworks inside Android community. These frameworks are:
+In this project we have used the next libraries:
 * **Coroutines**: this libraries helps us to manage long-running task, for example server requests, BBDD operations, etc... 
 * **Hilt**: this trendy libraries (in alpha version) is used to incorporate dependency injection into app. This helps us for testing, among other things (https://dagger.dev/hilt/).
 * **Rocket-Beer**: set of libraries that provide us boilerplate code we usually need to code in our projects. For example, rocket-core-data-network, to manage network access (https://github.com/Rocket-Beer).
