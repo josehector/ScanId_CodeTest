@@ -4,6 +4,8 @@ This project is part of a Mobbeel's hiring process which try to show our skills 
 ## Getting started
 This repository contain a simple verify document id Android app, written in Kotlin. This development must follow a guidelines from Mobbeel's team in order to know our skills.
 
+<img src="https://github.com/josehector/ScanId_CodeTest/blob/22403a637927d507dd21187af36d90e0fcc8519e/screenshots/screenshot.jpg" width="250">
+
 
 ## Tecnical details
 ### Architecture
