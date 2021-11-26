@@ -1,4 +1,4 @@
-package es.josehector.scanid.data.di
+package es.josehector.scanid.di
 
 import android.content.Context
 import com.rocket.android.core.data.network.di.CoreDataNetworkProvider
@@ -14,12 +14,17 @@ import es.josehector.scanid.data.network.datasource.MobbScanNetworkDatasource
 import es.josehector.scanid.data.network.service.MobbScanService
 import es.josehector.scanid.data.repository.MobbScanDataRepository
 import es.josehector.scanid.domain.repository.MobbScanRepository
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object DataModule {
+    @Provides
+    fun provideIOCoroutineDispatcher(): CoroutineDispatcher = Dispatchers.IO
+
     @Provides
     @Singleton
     fun provideCoreDataNetworkProvider(@ApplicationContext context: Context): CoreDataNetworkProvider {
