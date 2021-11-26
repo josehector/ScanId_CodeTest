@@ -13,6 +13,7 @@ ext {
             'rocketDataNetworkCommons': '0.0.3-alpha6',
             'rocketCrashReporting'    : '0.0.3-alpha6',
             'rocketDataNetworkTest'   : '0.0.2-alpha6'
+
     ]
 
     versions = [
