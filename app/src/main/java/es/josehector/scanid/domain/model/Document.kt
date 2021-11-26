@@ -1,5 +1,8 @@
 package es.josehector.scanid.domain.model
 
+/**
+ * Domain model
+ * */
 data class Document(
     val personalNumber: String,
     val documentNumber: String,

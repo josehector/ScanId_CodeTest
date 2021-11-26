@@ -5,6 +5,10 @@ import android.view.View
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 
+/**
+ * Extensions function to help us to write code more readable
+ */
+
 fun View.showOrGone(show: Boolean) {
     this.visibility = when(show) {
         true -> View.VISIBLE

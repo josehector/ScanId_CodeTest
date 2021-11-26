@@ -9,6 +9,14 @@ import es.josehector.scanid.domain.repository.MobbScanRepository
 import java.io.File
 import javax.inject.Inject
 
+/**
+ * Use case for scanning document id.
+ *
+ * Return all information about this document id.
+ *
+ * TODO: license id and document type should go in kind of session o similar
+ * TODO: manage different situations like connection error, etc...
+ */
 class ScanIdDocumentUseCase @Inject constructor(
     private val mobbScanRepository: MobbScanRepository
 ) : UseCaseSuspend<Either<Failure, Document>, ScanIdDocumentUseCase.Params>() {

@@ -8,6 +8,9 @@ import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
 
+/**
+ * Web service declaration used by retrofit
+ */
 interface MobbScanService {
     companion object {
         private const val BASE_URL = "mobbscan/"

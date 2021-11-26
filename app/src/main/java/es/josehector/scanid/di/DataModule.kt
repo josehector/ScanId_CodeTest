@@ -19,6 +19,10 @@ import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import javax.inject.Singleton
 
+/**
+ * Hilt module to declare app's dependencies
+ */
+
 @Module
 @InstallIn(SingletonComponent::class)
 object DataModule {

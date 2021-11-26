@@ -2,9 +2,12 @@ package es.josehector.scanid.data.network.model.response
 
 import com.squareup.moshi.Json
 
+/**
+ * Api model to receive web service response
+ */
+
 class ApiResponse {
     data class Document(
-        // TODO: 23/11/21 es posible que sobren las etiquetas @json si se llaman igual las variables
         @Json(name = "personalNumber") val personalNumber: String?,
         @Json(name = "documentNumber") val documentNumber: String?,
         @Json(name = "documentType") val documentType: String?,

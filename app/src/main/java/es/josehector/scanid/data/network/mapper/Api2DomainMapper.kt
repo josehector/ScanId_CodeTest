@@ -4,6 +4,10 @@ import es.josehector.scanid.data.network.model.response.ApiResponse
 import es.josehector.scanid.domain.model.Document
 import es.josehector.scanid.domain.model.GenderType
 
+/**
+ * Mapper to convert api model into domain model
+ */
+
 fun ApiResponse.Document.toDocument(): Document {
     return Document(
         personalNumber = this.personalNumber ?: "-",
@@ -16,5 +20,5 @@ fun ApiResponse.Document.toDocument(): Document {
         dateOfBirth = this.dateOfBirth ?: "-",
         address = this.address ?: "-",
         city = this.city ?: "-"
-    ) // TODO: data layer is not responsible to set "-" when there is not data
+    ) // FIXME: data layer is not responsible to set "-" when there is not data
 }
