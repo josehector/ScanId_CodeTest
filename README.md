@@ -18,7 +18,8 @@ In order to guarantee the quality of the project, we have adopted a Espresso fra
  
  ### Framework
 In this project we have used 2 trendy frameworks inside Android community. These frameworks are:
-* **Coroutines**: this framework helps us to manage long-running task, for example server requests, BBDD operations, etc... 
-* **Hilt**: this trendy framework (in alpha version) is used to incorporate dependency injection into app. This helps us for testing, among other things (https://dagger.dev/hilt/).
-* **Rocket-Beer**: this set of library provide us boilerplate code we usually need to code in our projects. For example, rocket-core-data-network, to manage network access.
+* **Coroutines**: this libraries helps us to manage long-running task, for example server requests, BBDD operations, etc... 
+* **Hilt**: this trendy libraries (in alpha version) is used to incorporate dependency injection into app. This helps us for testing, among other things (https://dagger.dev/hilt/).
+* **Rocket-Beer**: this set of library provide us boilerplate code we usually need to code in our projects. For example, rocket-core-data-network, to manage network access (https://github.com/Rocket-Beer).
+* **MockWebServer** this library let us to mock web services responses, in order to test our app when we make HTTP and HTTPS call (https://github.com/square/okhttp/tree/master/mockwebserver).
  
