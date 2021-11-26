@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MobbScan</string>
+    <string name="name">Name</string>
+    <string name="personal_number">Personal number</string>
+    <string name="document_type">Document type</string>
+    <string name="gender">Gender</string>
+    <string name="back">Back</string>
+    <string name="front">Front</string>
+    <string name="not_document_detected">NOT DOCUMENT DETECTED</string>
+    <string name="birth_date">Birth date</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="check">Check</string>
+</resources>

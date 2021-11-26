@@ -1,0 +1,127 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "es.josehector.scanid"
+        minSdkVersion 24
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "es.josehector.scanid.presentation.mobbscan.HiltTestRunner"
+    }
+
+    sourceSets {
+        test {
+            resources.srcDirs += ['/src/test/resources']
+        }
+        androidTest {
+            assets.srcDirs += files("$projectDir/schemas")
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    testOptions {
+        unitTests {
+            returnDefaultValues = true
+            includeAndroidResources = true
+            all {
+
+                testLogging {
+                    outputs.upToDateWhen { false }
+                    events "passed", "failed", "skipped"
+                    showCauses true
+                    showExceptions true
+                    afterSuite { desc, result ->
+                        if (!desc.parent) { // will match the outermost suite
+                            def output = "Data Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} passed, ${result.failedTestCount} failed, ${result.skippedTestCount} skipped)"
+                            def startItem = '|  ', endItem = '  |'
+                            def repeatLength = startItem.length() + output.length() + endItem.length()
+                            println('\n' + ('-' * repeatLength) + '\n' + startItem + output + endItem + '\n' + ('-' * repeatLength))
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    task copyTestResources(type: Copy) {
+        from "${projectDir}/src/test/resources"
+        into "${buildDir}/classes/test"
+    }
+    build.dependsOn copyTestResources
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$versions.ktx"
+    implementation "androidx.appcompat:appcompat:$versions.appcompat"
+    implementation "com.google.android.material:material:$versions.materialDesign"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
+
+    //Data layer
+    api "com.rocket.android.core:core-data-network:$libraries.rocketDataNetwork"
+    api "com.rocket.core:core-data-network-commons:$libraries.rocketDataNetworkCommons"
+    api "com.rocket.core:crash-reporting:$libraries.rocketCrashReporting"
+    api "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    api "com.squareup.retrofit2:converter-moshi:$versions.retrofit"
+    api "com.squareup.okhttp3:logging-interceptor:$versions.okhttp3"
+    implementation "com.squareup.moshi:moshi-kotlin:$versions.moshi"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$versions.kotlinxCoroutines"
+
+    //Hilt
+    implementation "com.google.dagger:hilt-android:$versions.hilt"
+    kapt "com.google.dagger:hilt-android-compiler:$versions.hilt"
+
+    //Domain layer
+    api "com.rocket.core:core-domain:$libraries.rocketDomain"
+
+    //Presentation layer
+    api "com.rocket.android.core:core-viewmodel:$libraries.rocketViewmodel"
+
+    //Hilt inject dependecies into viewmodels
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$versions.hiltLifecycleViewmodel"
+
+    //testImplementation 'junit:junit:4.+'
+    testImplementation "org.junit.jupiter:junit-jupiter:$testVersions.junit5"
+    testImplementation "com.rocket.android.core:core-data-network-test:$libraries.rocketDataNetworkTest"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$testVersions.mockwebserver"
+    testImplementation "io.mockk:mockk:$testVersions.mockk"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$testVersions.coroutines"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$testVersions.kotlinTest"
+    testImplementation "com.google.truth:truth:$testVersions.truth"
+
+    androidTestImplementation "androidx.test.ext:junit:$testVersions.testExt"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$testVersions.espresso"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$testVersions.hilt"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$versions.hilt"
+}

@@ -1,0 +1,26 @@
+{
+    "code": "OK",
+    "description": "SCAN_DOCUMENT_SUCCESS",
+    "scanId": "3a37bd0e-68e3-41b5-b636-f32c69a05e0f",
+    "document": {
+        "personalNumber": "99999999R",
+        "documentNumber": "BAA000431",
+        "documentType": "ESPIDCardV3",
+        "name": "CARMEN",
+        "surname": "ESPAÑOLA ESPAÑOLA",
+        "firstSurname": "ESPAÑOLA",
+        "secondSurname": "ESPAÑOLA",
+        "gender": "F",
+        "dateOfExpiry": "01/01/2025",
+        "dateOfBirth": "01/01/1980",
+        "nationality": "ESP",
+        "issuingState": "ESP",
+        "mrz": "IDESPBAA000431599999999R<<<<<<8001010F2501018ESP<<<<<<<<<<<6ESPANOLA<ESPANOLA<<CARMEN<<<<<",
+        "parents": "JUAN / CARMEN",
+        "region": "MADRID",
+        "regionOfBirth": "MADRID",
+        "address": "AVDA DE MADRID S-N",
+        "city": "MADRID",
+        "cityOfBirth": "MADRID"
+    }
+}
