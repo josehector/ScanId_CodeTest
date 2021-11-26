@@ -38,4 +38,23 @@ class MobbScanActivityTest {
         onView(withId(R.id.bt_front)).check(matches(isDisplayed()))
         onView(withId(R.id.bt_front)).check(matches(isClickable()))
     }
+
+    @Test
+    fun shouldDisplayCameraAndGallerySelectorButtons(){
+        onView(withId(R.id.iv_camera)).check(matches(isDisplayed()))
+        onView(withId(R.id.iv_camera)).check(matches(isClickable()))
+        onView(withId(R.id.iv_gallery)).check(matches(isDisplayed()))
+        onView(withId(R.id.iv_gallery)).check(matches(isClickable()))
+    }
+
+    @Test
+    fun shouldDisplayCheckButton(){
+        onView(withId(R.id.bt_check)).check(matches(isDisplayed()))
+        onView(withId(R.id.bt_check)).check(matches(isClickable()))
+    }
+
+    @Test
+    fun shouldDisplaySelectMessage(){
+        onView(withId(R.id.tv_select)).check(matches(isDisplayed()))
+    }
 }
