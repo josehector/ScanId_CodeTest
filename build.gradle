@@ -30,14 +30,14 @@ allprojects {
             url = "https://maven.pkg.github.com/Rocket-Beer/rocket-core-data-network"
             credentials {
                 username = "josehector1@gmail.com"
-                password = "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"
+                password = "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"
             }
         }
         maven {
             url = "https://maven.pkg.github.com/Rocket-Beer/rocket-core-presentation"
             credentials {
                 username = "josehector1@gmail.com"
-                password = "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"
+                password = "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"
             }
         }
     }
