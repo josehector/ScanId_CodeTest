@@ -1,5 +1,6 @@
 package es.josehector.scanid.data.network.service
 
+import androidx.annotation.VisibleForTesting
 import es.josehector.scanid.data.network.model.ApiMobbResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -24,5 +25,10 @@ interface MobbScanService {
         @Part("documentType") documentType: RequestBody,
         @Part front: MultipartBody.Part? = null,
         @Part back: MultipartBody.Part? = null
+    ): Call<ApiMobbResponse.ApiBaseScanIdResponse>
+
+    @VisibleForTesting
+    @POST(SCAN)
+    fun scanIdDocument(
     ): Call<ApiMobbResponse.ApiBaseScanIdResponse>
 }

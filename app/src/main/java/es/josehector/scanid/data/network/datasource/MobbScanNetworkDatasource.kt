@@ -1,5 +1,6 @@
 package es.josehector.scanid.data.network.datasource
 
+import androidx.annotation.VisibleForTesting
 import com.rocket.android.core.data.network.datasource.BaseNetworkDatasource
 import com.rocket.core.crashreporting.logger.CrashLogger
 import com.rocket.core.domain.error.Failure
@@ -46,6 +47,19 @@ class MobbScanNetworkDatasource @Inject constructor(
                     documentType = requestBodyDocumentType,
                     front = multiPartBodyFront,
                     back = multiPartBodyBack
+                )
+            },
+            parserSuccess = {
+                it?.document
+            }
+        )
+    }
+
+    @VisibleForTesting
+    internal fun scanIdDocument(): Either<Failure, ApiResponse.Document?> {
+        return requestApi(
+            call = {
+                mobbScanService.scanIdDocument(
                 )
             },
             parserSuccess = {
