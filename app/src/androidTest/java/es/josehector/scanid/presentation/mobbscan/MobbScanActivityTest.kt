@@ -1,10 +1,12 @@
 package es.josehector.scanid.presentation.mobbscan
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.karumi.shot.ActivityScenarioUtils.waitForActivity
+import com.karumi.shot.ScreenshotTest
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import es.josehector.scanid.R
@@ -16,7 +18,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
-class MobbScanActivityTest {
+class MobbScanActivityTest: ScreenshotTest {
 
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
@@ -32,29 +34,45 @@ class MobbScanActivityTest {
     }
 
     @Test
+    fun shouldDisplayMainScreen() {
+        compareScreenshot(activityRule.scenario.waitForActivity())
+    }
+
+    @Test
     fun shouldDisplayFrontAndBackButtons() {
-        onView(withId(R.id.bt_back)).check(matches(isDisplayed()))
-        onView(withId(R.id.bt_back)).check(matches(isClickable()))
-        onView(withId(R.id.bt_front)).check(matches(isDisplayed()))
-        onView(withId(R.id.bt_front)).check(matches(isClickable()))
+        Espresso.onView(ViewMatchers.withId(R.id.bt_back))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.bt_back))
+            .check(ViewAssertions.matches(ViewMatchers.isClickable()))
+        Espresso.onView(ViewMatchers.withId(R.id.bt_front))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.bt_front))
+            .check(ViewAssertions.matches(ViewMatchers.isClickable()))
     }
 
     @Test
     fun shouldDisplayCameraAndGallerySelectorButtons(){
-        onView(withId(R.id.iv_camera)).check(matches(isDisplayed()))
-        onView(withId(R.id.iv_camera)).check(matches(isClickable()))
-        onView(withId(R.id.iv_gallery)).check(matches(isDisplayed()))
-        onView(withId(R.id.iv_gallery)).check(matches(isClickable()))
+        Espresso.onView(ViewMatchers.withId(R.id.iv_camera))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.iv_camera))
+            .check(ViewAssertions.matches(ViewMatchers.isClickable()))
+        Espresso.onView(ViewMatchers.withId(R.id.iv_gallery))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.iv_gallery))
+            .check(ViewAssertions.matches(ViewMatchers.isClickable()))
     }
 
     @Test
     fun shouldDisplayCheckButton(){
-        onView(withId(R.id.bt_check)).check(matches(isDisplayed()))
-        onView(withId(R.id.bt_check)).check(matches(isClickable()))
+        Espresso.onView(ViewMatchers.withId(R.id.bt_check))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.bt_check))
+            .check(ViewAssertions.matches(ViewMatchers.isClickable()))
     }
 
     @Test
     fun shouldDisplaySelectMessage(){
-        onView(withId(R.id.tv_select)).check(matches(isDisplayed()))
+        Espresso.onView(ViewMatchers.withId(R.id.tv_select))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }

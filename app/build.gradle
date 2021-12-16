@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'shot'
 }
 
 android {
@@ -16,7 +17,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunner "es.josehector.scanid.presentation.mobbscan.HiltTestRunner"
     }
 
@@ -76,6 +76,10 @@ android {
         into "${buildDir}/classes/test"
     }
     build.dependsOn copyTestResources
+
+    packagingOptions {
+        exclude 'META-INF/*'
+    }
 }
 
 dependencies {
@@ -124,4 +128,6 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$testVersions.espresso"
     androidTestImplementation "com.google.dagger:hilt-android-testing:$testVersions.hilt"
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$versions.hilt"
+
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.0.0-beta03"
 }
